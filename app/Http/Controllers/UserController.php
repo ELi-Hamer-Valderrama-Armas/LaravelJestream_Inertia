@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class UserController extends Controller
@@ -22,7 +24,7 @@ class UserController extends Controller
     public function index()
     {
 
-        $query = User::query();
+        $query = User::query()->orderBy('Role');;
 
         if (request('buscar')) {
             $query->where('name', 'LIKE', '%' . request('buscar') . '%');
@@ -39,7 +41,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+                return Inertia::render('User/Form');
     }
 
     /**
@@ -50,7 +52,35 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $request->validate(
+            [
+                'name' => 'Required|max:255',
+                'email' => 'Required|email|unique:users,email|max:255',
+                'NumeroDocumento' => 'Required|max:8',
+                 'Telefono'=> 'Nullable|max:11',
+                'Ciudad'=> 'Nullable|max:255',
+                'Calle'=> 'Nullable|max:255',
+                'Numero'=> 'Nullable|max:6',
+                'Role'=> 'Required|max:50', 
+                'password' => 'Required|confirmed|min:6', 
+                'password_confirmation' => 'min:6'
+
+            ]
+        );
+       
+         User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'NumeroDocumento'=> $request->NumeroDocumento,
+                'Telefono'=> $request->Telefono,
+                'Ciudad'=> $request->Ciudad,
+                'Calle'=> $request->Calle,
+                'Numero'=> $request->Numero,
+                'Role'=> $request->Role,  
+            'password' => Hash::make($request->password),
+        ]);
+        return Redirect::route( 'usuarios.index' )->with( 'success', 'Usuario creado.' ); 
     }
 
     /**
@@ -89,6 +119,12 @@ class UserController extends Controller
             [
                 'name' => 'Required',
                 'email' => 'Required|email',
+                'NumeroDocumento'=> 'Required',
+                'Telefono'=> 'Nullable',
+                'Ciudad'=> 'Nullable',
+                'Calle'=> 'Nullable',
+                'Numero'=> 'Nullable',
+                'Role'=> 'Required',   
             ]
         );
 
@@ -102,8 +138,15 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(User $usuario)
     {
-        //
+     
+      if($usuario->profile_photo_path != null){
+        
+     Storage::disk('public')->delete($usuario->profile_photo_path);
+      }
+      
+    $usuario->delete();
+     return Redirect::route('usuarios.index')->with('success', 'Usuario eliminado.');
     }
 }

@@ -15,11 +15,12 @@ class CreateSalidasTable extends Migration
     {
         Schema::create('salidas', function (Blueprint $table) {
             $table->id();
+            $table->timestamp('Fecha')->nullable();
             $table->string('TipoComprobante')->nullable();
-            $table->integer('SerieComprobante')->nullable();
-            $table->integer('NumeroComprobante')->nullable();
-            $table->integer('Impuesto')->nullable();
-            $table->Decimal('total', 8, 2)->nullable();
+            $table->string('SerieComprobante')->nullable();
+            $table->string('NumeroComprobante')->nullable();
+            $table->Decimal('Impuesto',8,2)->nullable();
+            $table->Decimal('Total', 8, 2)->nullable();
 
             $table->foreignId('persona_id')
                 ->constrained('personas')

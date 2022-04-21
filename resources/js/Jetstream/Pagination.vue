@@ -8,7 +8,7 @@
       <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
         <nav aria-label="Table navigation">
           <ul class="inline-flex items-center">
-            <div v-for="link in links" :key="link.url">
+            <div v-for="link in links" :key="link.key">
               <li v-if="link.url === null">
                 <div
                   class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple"
@@ -33,6 +33,9 @@
       </span>
     </div>
   </div>
+
+
+
 </template>
 
 <script>

@@ -6,7 +6,7 @@
           class="px-2 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
         >
           <h2
-            class="py-2 px-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+            class="py-2 px-6 text-lg font-semibold text-gray-700 dark:text-gray-200"
           >
             Productos
           </h2>
@@ -44,8 +44,14 @@
                     ></path>
                   </svg>
                 </div>
-
-               
+                <jet-input
+                  id="searchale"
+                  placeholder="Buscar nombre"
+                  type="search"
+                  v-model="params.buscar"
+                  autocomplete="off"
+                  class="px-8 mt-1 block w-full"
+                />
               </div>
             </span>
           </div>
@@ -63,14 +69,13 @@
                   >
                     <thead>
                       <tr
-                        class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-bdark:border-gray-700 bg-gray-100 dark:text-gray-400 dark:bg-gray-700"
+                        class="text-xs font-semibold tracking-wide text-left text-white uppercase border-bdark:border-gray-700 bg-gray-600 dark:text-gray-400 dark:bg-gray-700"
                       >
-                        <th class="px-4 py-3">ID</th>
                         <th class="px-4 py-3">NOMBRE</th>
                         <th class="px-4 py-3">CATEGORIA</th>
                         <th class="px-4 py-3">STOCK</th>
                         <th class="px-4 py-3">UNIDAD MEDIDA</th>
-                        <th class="px-4 py-3">PRECIO VENTA</th>
+                        <th class="px-4 py-3">PRECIO</th>
                         <th class="px-4 py-3">ACCION</th>
                       </tr>
                     </thead>
@@ -81,18 +86,28 @@
                         v-for="(producto, index) in productos.data"
                         :key="index"
                         class="text-gray-700 dark:text-gray-400"
+                        :class="{
+                          'bg-gray-50 dark:bg-gray-800': index % 2 === 0,
+                        }"
                       >
-                        <td class="px-4 py-3 text-sm">
-                          {{ index + 1 }}
-                        </td>
                         <td class="px-4 py-3 text-sm">
                           {{ producto.Nombre }}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                          {{producto.categorias.Nombre}}
+                          {{ producto.categorias.Nombre }}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                          {{ producto.Stock }}
+                          <div v-if="producto.Stock > 0 && producto.Stock <= 5">
+                             <span class="bg-yellow-200 text-yellow-600 py-1 px-3 rounded-full">{{ producto.Stock }}</span>
+                          </div>
+                          <div v-if="producto.Stock > 5">
+                             <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full">{{ producto.Stock }}</span>
+                          </div>
+                          <div v-if="producto.Stock === 0">
+                             <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full">{{ producto.Stock }}</span>
+                          </div>
+                          
+                          
                         </td>
                         <td class="px-4 py-3 text-sm">
                           {{ producto.UnidadMedida }}
@@ -147,7 +162,7 @@
                           <p
                             class="text-sm text-center text-gray-700 dark:text-gray-300"
                           >
-                            No existen productos.
+                            No existen productos
                           </p>
                         </td>
                       </tr>
@@ -157,12 +172,11 @@
                   <jet-pagination :links="productos.links" />
 
                   <jet-confirmation-modal :show="isOpen" @click="closeModal">
-                    <template #title> Eliminar área </template>
+                    <template #title> Eliminar producto</template>
 
                     <template #content>
-                      Si eliminas este productos también se eliminaran de las
-                      entradas y salidas que le pertenecen. ¿Esta seguro de
-                      Eliminar este Producto?.
+                      Si eliminas este producto también se eliminaran los distintos ingresos y salidas que lo involucren. ¿Esta seguro de
+                      Eliminar este producto?.
                     </template>
 
                     <template #footer>

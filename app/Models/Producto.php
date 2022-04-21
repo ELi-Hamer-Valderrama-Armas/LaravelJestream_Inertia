@@ -18,6 +18,12 @@ class Producto extends Model
     }
     public function ingresos()
     {
-    return $this->belongsToMany('App\Models\Ingreso','producto_ingreso','producto_id','ingreso_id')->withPivot('precio','cantidad','monto');
+    return $this->belongsToMany('App\Models\Ingreso','producto_ingreso','ingreso_id','producto_id')->withPivot('precio','cantidad','monto');
     }
+
+        public function salidas()
+    {
+    return $this->belongsToMany('App\Models\Salida','salida_producto','salida_id','producto_id')->withPivot('precio','cantidad','monto');
+    }
+    
 }

@@ -30,9 +30,9 @@
           class="px-8 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
         >
           <h2
-            class="my-2 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+            class="my-2 text-lg font-semibold text-gray-700 dark:text-gray-200"
           >
-            Nueva Categoría
+            Nueva categoría
           </h2>
           
 
@@ -43,7 +43,7 @@
               type="text"
               class="mt-1 block w-full"
               v-model="form.Nombre"
-              placeholder="Nombre Categoria"
+              placeholder="Nombre Categoría"
               autofocus="true"
               autocomplete="off"
             />
@@ -56,20 +56,20 @@
           </div>
 
           <div>
-            <jet-label for="Descripcion" value="Descripcion" />
+            <jet-label for="Descripcion" value="Descripción" />
             <jet-input
               id="Descripcion"
               type="text"
               class="mt-1 block w-full"
               v-model="form.Descripcion"
-              placeholder="Descripcion Categoria"
+              placeholder="Descripción Categoría"
               autocomplete="off"
             />
             <div
               v-if="errors.Descripcion"
               class="text-xs px-4 py-2 text-red-400 dark:text-red-400"
             >
-              La descripcion es requerido
+              La descripción es requerido
             </div>
           </div>
 

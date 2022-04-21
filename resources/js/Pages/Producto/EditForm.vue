@@ -29,9 +29,9 @@
             class="px-8 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
           >
             <h2
-              class="my-2 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+              class="my-2 text-lg font-semibold text-gray-700 dark:text-gray-200"
             >
-              Editar Producto
+              Editar producto
             </h2>
             <div>
               <jet-label for="Nombre" value="Nombre" />
@@ -48,12 +48,12 @@
                 v-if="errors.Nombre"
                 class="px-4 py-2 text-xs py-2 text-red-400 dark:text-red-400"
               >
-                El nombre son requerido
+                El nombre es requerido
               </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 md:gap-8">
               <div>
-                <jet-label for="categoria" value="Categoria" />
+                <jet-label for="categoria" value="Categoría" />
 
                 <select
                   class="bg-gray-100 appearance-none focus:ring-purple-500 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:border-purple-500 rounded-lg dark:border-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:focus:border-purple-500 dark:focus:shadow-outline-gray dark:border-gray-800"
@@ -63,20 +63,20 @@
                     v-for="(categor, index) in categorias"
                     :key="index"
                     :value="categor.id"
-                    >{{ index + 1 }} - {{ categor.Nombre }}</option
+                    >{{ categor.Nombre }}</option
                   >
                 </select>
                  <div
                   v-if="errors.categoria_id"
                   class="text-xs px-4 py-2 text-red-400 dark:text-red-400"
                 >
-                  La Categoria es requerida
+                  La categoría es requerida
                 </div>
               
               </div>
 
               <div>
-                <jet-label for="UnidadMedida" value="Unidad Medida" />
+                <jet-label for="UnidadMedida" value="Unidad de Medida" />
 
                 <select
                   class="bg-gray-100 appearance-none focus:ring-purple-500 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:border-purple-500 rounded-lg dark:border-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:focus:border-purple-500 dark:focus:shadow-outline-gray dark:border-gray-800"
@@ -85,12 +85,13 @@
                   <option value="Unidad">Unidad</option>
                   <option value="Millar">Millar</option>
                   <option value="Metro Cúbico">Metro Cúbico</option>
+                  <option value="Tonelada">Tonelada</option>
                 </select>
                 <div
                   v-if="errors.UnidadMedida"
                   class="text-xs px-4 py-2 text-red-400 dark:text-red-400"
                 >
-                  La UnidadMedida es requerido
+                  La unidad de medida es requerida
                 </div>
               </div>
             </div>
@@ -111,13 +112,13 @@
                     v-if="errors.Stock"
                     class="px-4 py-2 text-xs py-2 text-red-400 dark:text-red-400"
                   >
-                    El Stock es requerido
+                    El stock es requerido
                   </div>
                 </div>
               </div>
 
               <div>
-                <jet-label for="Precio Venta" value="Precio Venta" />
+                <jet-label for="Precio Venta" value="Precio" />
                 <jet-input
                   id="PrecioVenta"
                   type="number"
@@ -131,7 +132,7 @@
                   v-if="errors.PrecioVenta"
                   class="text-xs px-4 py-2 text-red-400 dark:text-red-400"
                 >
-                  El Precio Venta es requerido
+                  El precio es requerido
                 </div>
               </div>
             </div>

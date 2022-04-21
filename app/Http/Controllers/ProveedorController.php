@@ -17,7 +17,7 @@ class ProveedorController extends Controller
     public function index()
     {
         // $categorias = Categoria::paginate(2);
-        $query = Persona::where('TipoPersona', '=', 'Proveedor');
+        $query = Persona::where('TipoPersona', '=', 'Proveedor')->orderBy('Nombres');
 
         if (request('buscar')) {
             $query->where('Nombres', 'LIKE', '%' . request('buscar') . '%')->where('TipoPersona', '=', 'Proveedor');

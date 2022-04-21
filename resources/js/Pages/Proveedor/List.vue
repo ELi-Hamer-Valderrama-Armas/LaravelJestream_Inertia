@@ -6,7 +6,7 @@
           class="px-2 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
         >
           <h2
-            class="py-2 px-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+            class="py-2 px-6 text-lg font-semibold text-gray-700 dark:text-gray-200"
           >
             Proveedores
           </h2>
@@ -47,7 +47,7 @@
 
                 <jet-input
                   id="searchale"
-                  placeholder="Buscar Nombre"
+                  placeholder="Buscar nombre"
                   type="search"
                   v-model="params.buscar"
                   autocomplete="off"
@@ -70,9 +70,9 @@
                   >
                     <thead>
                       <tr
-                        class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-bdark:border-gray-700 bg-gray-100 dark:text-gray-400 dark:bg-gray-700"
+                        class="text-xs font-semibold tracking-wide text-left text-white uppercase border-bdark:border-gray-700 bg-gray-600 dark:text-gray-400 dark:bg-gray-700"
                       >
-                        <th class="px-4 py-3">ID</th>
+                       
                         <th class="px-4 py-3">NOMBRES</th>
                         <th class="px-4 py-3">RAZÓN SOCIAL</th>
                         <th class="px-4 py-3">DOCUMENTO</th>
@@ -90,10 +90,9 @@
                         v-for="(proveedor, index) in proveedores.data"
                         :key="index"
                         class="text-gray-700 dark:text-gray-400"
+                        :class="{'bg-gray-50 dark:bg-gray-800': index%2===0}"
                       >
-                        <td class="px-4 py-3 text-sm">
-                          {{ index + 1 }}
-                        </td>
+                       
                         <td class="px-4 py-3 text-sm">
                           {{ proveedor.Nombres }}
                         </td>
@@ -164,7 +163,7 @@
                           <p
                             class="text-sm text-center text-gray-700 dark:text-gray-300"
                           >
-                            No existen proveedores.
+                            No existen proveedores
                           </p>
                         </td>
                       </tr>
@@ -178,7 +177,7 @@
 
                     <template #content>
                       Si eliminas este proveedor también se eliminaran los productos
-                      que le pertenecen. ¿Esta seguro de Eliminar esta cliente?.
+                      que haya abastecido. ¿Esta seguro de Eliminar esta proveedor?.
                     </template>
 
                     <template #footer>

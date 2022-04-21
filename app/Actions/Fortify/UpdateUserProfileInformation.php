@@ -5,6 +5,7 @@ namespace App\Actions\Fortify;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Redirect;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
 
 class UpdateUserProfileInformation implements UpdatesUserProfileInformation
@@ -20,6 +21,12 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
+ 'NumeroDocumento'=>  ['required', 'string', 'max:255'],
+                'Telefono'=>  ['nullable', 'string', 'max:255'],
+                'Ciudad'=>  ['nullable', 'string', 'max:255'],
+                'Calle'=>  ['nullable', 'string', 'max:255'],
+                'Numero'=> ['nullable', 'max:255'],
+
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
         ])->validateWithBag('updateProfileInformation');
@@ -35,7 +42,15 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'name' => $input['name'],
                 'email' => $input['email'],
+                'NumeroDocumento'=>  $input['NumeroDocumento'],
+                'Telefono'=>  $input['Telefono'],
+                'Ciudad'=>  $input['Ciudad'],
+                'Calle'=>  $input['Calle'],
+                'Numero'=> $input['Numero'],
+
             ])->save();
+            
+ return Redirect::route('profile.show')->with('success','Usuario editado.');
         }
     }
 
@@ -51,6 +66,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         $user->forceFill([
             'name' => $input['name'],
             'email' => $input['email'],
+             'NumeroDocumento'=>  $input['NumeroDocumento'],
+                'Telefono'=>  $input['Telefono'],
+                'Ciudad'=>  $input['Ciudad'],
+                'Calle'=>  $input['Calle'],
+                'Numero'=> $input['Numero'],
             'email_verified_at' => null,
         ])->save();
 

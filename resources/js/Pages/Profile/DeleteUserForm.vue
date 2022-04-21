@@ -1,33 +1,40 @@
 <template>
     <jet-action-section>
         <template #title>
-            Delete Account
+            <div class="dark:text-gray-400">
+            Borrar cuenta
+            </div>
         </template>
 
         <template #description>
-            Permanently delete your account.
+            <div class="dark:text-gray-400">
+            Elimina permanentemente tu cuenta.
+            </div>
         </template>
 
         <template #content>
-            <div class="max-w-xl text-sm text-gray-600">
-                Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.
+            <div class="max-w-xl text-sm text-gray-600 dark:text-gray-400">
+                Una vez que se elimine su cuenta, todos sus recursos y datos se eliminarán permanentemente. Antes de eliminar su cuenta, descargue cualquier dato o información que desee conservar.
             </div>
 
             <div class="mt-5">
-                <jet-danger-button @click="confirmUserDeletion">
-                    Delete Account
-                </jet-danger-button>
+                <button class="px-4 py-2 leading-5 inline-flex items-center px-4 py-2 bg-red-400 border border-transparent rounded-lg font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-100 disabled:opacity-25 transition" @click="confirmUserDeletion">
+                    Borrar cuenta
+                </button>
             </div>
 
             <!-- Delete Account Confirmation Modal -->
             <jet-dialog-modal :show="confirmingUserDeletion" @close="closeModal">
                 <template #title>
-                    Delete Account
+                    <div class="dark:text-gray-400">
+                    Borrar cuenta
+                    </div>
                 </template>
 
                 <template #content>
-                    Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.
-
+                    <div class="dark:text-gray-400">
+                    ¿Estás seguro de que deseas eliminar tu cuenta? Una vez que se elimine su cuenta, todos sus recursos y datos se eliminarán permanentemente. Ingrese su contraseña para confirmar que desea eliminar permanentemente su cuenta.
+</div>
                     <div class="mt-4">
                         <jet-input type="password" class="mt-1 block w-3/4" placeholder="Password"
                                     ref="password"
@@ -39,13 +46,13 @@
                 </template>
 
                 <template #footer>
-                    <jet-secondary-button @click="closeModal">
-                        Cancel
-                    </jet-secondary-button>
+                    <button @click="closeModal" class="w-full px-5 py-3 text-sm font-medium leading-5 text-white text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
+                        Cancelar
+                    </button>
 
-                    <jet-danger-button class="ml-2" @click="deleteUser" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                        Delete Account
-                    </jet-danger-button>
+                    <button class="w-full px-5 text-center py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-400 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-red-400 hover:bg-red-500 focus:outline-none focus:shadow-outline-red" @click="deleteUser" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                        Borrar cuenta
+                    </button>
                 </template>
             </jet-dialog-modal>
         </template>

@@ -58,7 +58,7 @@ class ProductoController extends Controller {
                 'Nombre' => 'Required|max:150',
                 'Stock' => 'Required|max:8',
                 'UnidadMedida' => 'Required|max:50',
-                'PrecioVenta' => 'nullable',
+                'PrecioVenta' => 'Required|max:20',
                 'categoria_id' => 'Required',
 
             ]

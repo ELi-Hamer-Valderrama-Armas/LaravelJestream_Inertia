@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
       
        Gate::before( function(User $user, $ability){
 
-            if($user->checkRole('administrador')){
+            if($user->checkRole('Administrador')){
                 return true;
             }
         });

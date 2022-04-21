@@ -17,7 +17,7 @@ class ClienteController extends Controller
     public function index()
     {
         // $categorias = Categoria::paginate(2);
-        $query = Persona::where('TipoPersona', '=', 'Cliente');
+        $query = Persona::where('TipoPersona', '=', 'Cliente')->orderBy('Nombres');;
 
         if (request('buscar')) {
             $query->where('Nombres', 'LIKE', '%' . request('buscar') . '%')->where('TipoPersona', '=', 'Cliente');
@@ -64,7 +64,7 @@ class ClienteController extends Controller
 
         Persona::create($request->all());
 
-        return Redirect::route('clientes.index')->with('success', 'Cliente creada.');
+        return Redirect::route('clientes.index')->with('success', 'Cliente creado.');
     }
 
     /**

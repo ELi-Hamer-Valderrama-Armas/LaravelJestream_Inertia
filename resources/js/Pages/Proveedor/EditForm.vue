@@ -29,9 +29,9 @@
             class="px-8 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
           >
             <h2
-              class="my-2 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+              class="my-2 text-lg font-semibold text-gray-700 dark:text-gray-200"
             >
-              Editar Proveedor
+              Editar proveedor
             </h2>
 
             <div class="grid grid-cols-1">
@@ -59,13 +59,13 @@
               <div class="grid grid-cols-1">
                  <div class="grid grid-cols-1">
               <div>
-                <jet-label for="RazonSocial" value="RazonSocial" />
+                <jet-label for="RazonSocial" value="Razón social" />
                 <jet-input
                   id="RazonSocial"
                   type="text"
                   class="mt-1 block w-full"
                   v-model="form.RazonSocial"
-                  placeholder="Apellidos y Nombres"
+                  placeholder="Razón social Sac"
                   autofocus="true"
                   autocomplete="off"
                 />
@@ -73,13 +73,13 @@
                   v-if="errors.RazonSocial"
                   class="px-4 py-2 text-xs py-2 text-red-400 dark:text-red-400"
                 >
-                  La RazonSocial es requerido
+                  La Razón social es requerido
                 </div>
               </div>
             </div>
               </div>
               <div>
-                <jet-label for="TipoDocumento" value="Tipo Documento" />
+                <jet-label for="TipoDocumento" value="Típo Documento" />
 
                 <select
                   class="bg-gray-100 appearance-none focus:ring-purple-500 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:border-purple-500 rounded-lg dark:border-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:focus:border-purple-500 dark:focus:shadow-outline-gray dark:border-gray-800"
@@ -92,7 +92,7 @@
                   v-if="errors.TipoDocumento"
                   class="text-xs px-4 py-2 text-red-400 dark:text-red-400"
                 >
-                  El tipo de documento es requerido
+                  El típo de documento es requerido
                 </div>
               </div>
             </div>
@@ -101,7 +101,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 md:gap-8">
               <div class="grid grid-cols-1">
                 <div>
-                  <jet-label for="Numero Documento" value="Numero Documento" />
+                  <jet-label for="Numero Documento" value="Número documento" />
                   <jet-input
                     id="NumeroDocumento"
                     type="number"
@@ -114,7 +114,7 @@
                     v-if="errors.NumeroDocumento"
                     class="text-xs px-4 py-2 text-red-400 dark:text-red-400"
                   >
-                    El numero de documento es requerido
+                    El número de documento es requerido
                   </div>
                 </div>
               </div>
@@ -126,7 +126,7 @@
                     type="number"
                     class="mt-1 block w-full"
                     v-model="form.Telefono"
-                    placeholder="Numero Teléfono"
+                    placeholder="000 000 000"
                     autocomplete="off"
                   />
                   <div
@@ -164,7 +164,7 @@
                     type="text"
                     class="mt-1 block w-full"
                     v-model="form.Ciudad"
-                    placeholder="Nombres Ciudad"
+                    placeholder="Nombre"
                     autofocus="true"
                     autocomplete="off"
                   />
@@ -179,7 +179,7 @@
                     type="text"
                     class="mt-1 block w-full"
                     v-model="form.Calle"
-                    placeholder="Nombre Calle"
+                    placeholder="Nombre"
                     autocomplete="off"
                   />
                   <div
@@ -193,20 +193,20 @@
 
               <div class="grid grid-cols-1">
                 <div>
-                  <jet-label for="Numero" value="Numero" />
+                  <jet-label for="Numero" value="Número" />
                   <jet-input
                     id="Numero"
                     type="number"
                     class="mt-1 block w-full"
                     v-model="form.Numero"
-                    placeholder="Numero"
+                    placeholder="000"
                     autocomplete="off"
                   />
                   <div
                     v-if="errors.Numero"
                     class="text-xs px-4 py-2 text-red-400 dark:text-red-400"
                   >
-                    El numero es requerido
+                    El número es requerido
                   </div>
                 </div>
               </div>

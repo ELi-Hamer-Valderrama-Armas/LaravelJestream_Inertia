@@ -8,13 +8,13 @@
     >
       <!-- Desktop sidebar -->
       <aside
-        class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0"
+        class="z-20 w-64 hidden md:block overflow-y-auto bg-white dark:bg-gray-800 flex-shrink-0"
       >
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <button
-            class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
+            class="active:bg-transparent inline-flex focus:outline-none ml-2 px-2 text-md font-semibold uppercase no-underline text-gray-700 dark:text-gray-200 ease-in-out"
           >
-            Empresa S.A.C
+            Ladrillos Mochica sac
           </button>
 
           <ul class="mt-6">
@@ -46,36 +46,30 @@
                 <span class="ml-4">Inicio</span>
               </inertia-link>
             </li>
-             <li class="relative px-6 py-3">
+            <li class="relative px-6 py-3">
               <inertia-link
                 :href="route('proveedores.index')"
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-purple-600 dark:hover:text-gray-200"
                 :class="{
-                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100':
-                    route().current('proveedores.*')
+                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100': route().current(
+                    'proveedores.*'
+                  ),
                 }"
               >
                 <span
-                  v-if="
-                    route().current('proveedores.*')
-                  "
+                  v-if="route().current('proveedores.*')"
                   class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
                 ></span>
                 <svg
-                  class="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
                 >
                   <path
-                    fill-rule="evenodd"
-                    d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
-                    clip-rule="evenodd"
-                  ></path>
-                  <path
-                    d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
-                  ></path>
+                    d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"
+                  />
                 </svg>
 
                 <span class="ml-4">Proveedores</span>
@@ -86,31 +80,28 @@
                 :href="route('categorias.index')"
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-purple-600 dark:hover:text-gray-200"
                 :class="{
-                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100':
-                    route().current('categorias.*')
+                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100': route().current(
+                    'categorias.*'
+                  ),
                 }"
               >
                 <span
-                  v-if="
-                    route().current('categorias.*')
-                  "
+                  v-if="route().current('categorias.*')"
                   class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
                 ></span>
                 <svg
-                  class="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
                 >
                   <path
-                    fill-rule="evenodd"
-                    d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
-                    clip-rule="evenodd"
-                  ></path>
+                    d="M9 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414A2 2 0 0016.414 5L14 2.586A2 2 0 0012.586 2H9z"
+                  />
                   <path
-                    d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
-                  ></path>
+                    d="M3 8a2 2 0 012-2v10h8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"
+                  />
                 </svg>
 
                 <span class="ml-4">Categorias</span>
@@ -121,171 +112,153 @@
                 :href="route('productos.index')"
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-purple-600 dark:hover:text-gray-200"
                 :class="{
-                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100':
-                    route().current('productos.*')
+                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100': route().current(
+                    'productos.*'
+                  ),
                 }"
               >
                 <span
-                  v-if="
-                    route().current('productos.*')
-                  "
+                  v-if="route().current('productos.*')"
                   class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
                 ></span>
                 <svg
-                  class="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
                 >
                   <path
                     fill-rule="evenodd"
-                    d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
+                    d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
                     clip-rule="evenodd"
-                  ></path>
-                  <path
-                    d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
-                  ></path>
+                  />
                 </svg>
 
                 <span class="ml-4">Productos</span>
               </inertia-link>
-            </li>           
+            </li>
             <li class="relative px-6 py-3">
               <inertia-link
                 :href="route('ingresos.index')"
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-purple-600 dark:hover:text-gray-200"
                 :class="{
-                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100':
-                    route().current('ingresos.*')
+                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100': route().current(
+                    'ingresos.*'
+                  ),
                 }"
               >
                 <span
-                  v-if="
-                    route().current('ingresos.*')
-                  "
+                  v-if="route().current('ingresos.*')"
                   class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
                 ></span>
                 <svg
-                  class="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
                 >
                   <path
-                    fill-rule="evenodd"
-                    d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
-                    clip-rule="evenodd"
-                  ></path>
-                  <path
-                    d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
-                  ></path>
+                    d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                  />
                 </svg>
 
                 <span class="ml-4">Ingresos</span>
               </inertia-link>
             </li>
-            <li class="relative px-6 py-3"
-            >
+            <li class="relative px-6 py-3">
               <inertia-link
                 :href="route('clientes.index')"
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-purple-600 dark:hover:text-gray-200"
                 :class="{
-                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100':
-                    route().current('clientes.*') 
+                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100': route().current(
+                    'clientes.*'
+                  ),
                 }"
               >
                 <span
-                  v-if="
-                    route().current('clientes.*')
-                  "
+                  v-if="route().current('clientes.*')"
                   class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
                 ></span>
                 <svg
-                  class="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
                 >
                   <path
-                    fill-rule="evenodd"
-                    d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
-                    clip-rule="evenodd"
-                  ></path>
-                  <path
-                    d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
-                  ></path>
+                    d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"
+                  />
                 </svg>
 
                 <span class="ml-4">Clientes</span>
               </inertia-link>
             </li>
-           
             <li class="relative px-6 py-3">
               <inertia-link
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="route('products.index')"
-                style="text-decoration: none"
+                :href="route('salidas.index')"
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-purple-600 dark:hover:text-gray-200"
+                :class="{
+                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100': route().current(
+                    'salidas.*'
+                  ),
+                }"
               >
                 <span
-                  v-if="route().current('products.index')"
+                  v-if="route().current('salidas.*')"
                   class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
                 ></span>
                 <svg
-                  class="w-5 h-5"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
                 >
                   <path
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  ></path>
+                    d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                  />
+                  <path
+                    d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z"
+                  />
                 </svg>
                 <span class="ml-4">Salidas</span>
               </inertia-link>
             </li>
-             <li class="relative px-6 py-3"
-            v-if="$page.props.permission.users.viewAny">
+            <li
+              class="relative px-6 py-3"
+              v-if="$page.props.permission.users.viewAny"
+            >
               <inertia-link
-               
                 :href="route('usuarios.index')"
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-purple-600 dark:hover:text-gray-200"
                 :class="{
-                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100':
-                    route().current('usuarios.*')
+                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100': route().current(
+                    'usuarios.*'
+                  ),
                 }"
               >
                 <span
-                  v-if="
-                    route().current('usuarios.*')
-                  "
+                  v-if="route().current('usuarios.*')"
                   class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
                 ></span>
                 <svg
-                  class="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
                 >
                   <path
                     fill-rule="evenodd"
-                    d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
+                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
                     clip-rule="evenodd"
-                  ></path>
-                  <path
-                    d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
-                  ></path>
+                  />
                 </svg>
 
-                <span class="ml-4">Configuración</span>
+                <span class="ml-4">Usuarios</span>
               </inertia-link>
             </li>
           </ul>
@@ -301,12 +274,11 @@
         }"
       >
         <div class="py-4 text-gray-500 dark:text-gray-400">
-          <a
-            class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="#"
+          <button
+            class="active:bg-transparent inline-flex focus:outline-none ml-2 px-2 text-md font-semibold uppercase no-underline text-gray-700 dark:text-gray-200 ease-in-out"
           >
-            Ladrillos Mochica S.A.C
-          </a>
+            Ladrillos Mochica sac
+          </button>
           <ul class="mt-6">
             <li class="relative px-6 py-3">
               <inertia-link
@@ -338,38 +310,60 @@
             </li>
             <li class="relative px-6 py-3">
               <inertia-link
-                :href="route('categorias.index')"
+                :href="route('proveedores.index')"
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-purple-600 dark:hover:text-gray-200"
                 :class="{
-                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100':
-                    route().current('categorias.index') ||
-                    route().current('categorias.create') ||
-                    route().current('categorias.edit'),
+                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100': route().current(
+                    'proveedores.*'
+                  ),
                 }"
               >
                 <span
-                  v-if="
-                    route().current('categorias.index') ||
-                    route().current('categorias.create') ||
-                    route().current('categorias.edit')
-                  "
+                  v-if="route().current('proveedores.*')"
                   class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
                 ></span>
                 <svg
-                  class="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
                 >
                   <path
-                    fill-rule="evenodd"
-                    d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
-                    clip-rule="evenodd"
-                  ></path>
+                    d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"
+                  />
+                </svg>
+
+                <span class="ml-4">Proveedores</span>
+              </inertia-link>
+            </li>
+            <li class="relative px-6 py-3">
+              <inertia-link
+                :href="route('categorias.index')"
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-purple-600 dark:hover:text-gray-200"
+                :class="{
+                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100': route().current(
+                    'categorias.*'
+                  ),
+                }"
+              >
+                <span
+                  v-if="route().current('categorias.*')"
+                  class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                  aria-hidden="true"
+                ></span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
                   <path
-                    d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
-                  ></path>
+                    d="M9 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414A2 2 0 0016.414 5L14 2.586A2 2 0 0012.586 2H9z"
+                  />
+                  <path
+                    d="M3 8a2 2 0 012-2v10h8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"
+                  />
                 </svg>
 
                 <span class="ml-4">Categorias</span>
@@ -377,164 +371,156 @@
             </li>
             <li class="relative px-6 py-3">
               <inertia-link
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="route('products.index')"
+                :href="route('productos.index')"
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-purple-600 dark:hover:text-gray-200"
+                :class="{
+                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100': route().current(
+                    'productos.*'
+                  ),
+                }"
               >
                 <span
-                  v-if="route().current('products.index')"
+                  v-if="route().current('productos.*')"
                   class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
                 ></span>
                 <svg
-                  class="w-5 h-5"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
                 >
                   <path
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  ></path>
+                    fill-rule="evenodd"
+                    d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
+                    clip-rule="evenodd"
+                  />
                 </svg>
+
                 <span class="ml-4">Productos</span>
               </inertia-link>
             </li>
             <li class="relative px-6 py-3">
               <inertia-link
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="route('products.index')"
+                :href="route('ingresos.index')"
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-purple-600 dark:hover:text-gray-200"
+                :class="{
+                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100': route().current(
+                    'ingresos.*'
+                  ),
+                }"
               >
                 <span
-                  v-if="route().current('products.index')"
+                  v-if="route().current('ingresos.*')"
                   class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
                 ></span>
                 <svg
-                  class="w-5 h-5"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
                 >
                   <path
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  ></path>
+                    d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                  />
                 </svg>
-                <span class="ml-4">Areas</span>
-              </inertia-link>
-            </li>
-            <li class="relative px-6 py-3">
-              <inertia-link
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="route('products.index')"
-              >
-                <span
-                  v-if="route().current('products.index')"
-                  class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                  aria-hidden="true"
-                ></span>
-                <svg
-                  class="w-5 h-5"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  ></path>
-                </svg>
+
                 <span class="ml-4">Ingresos</span>
               </inertia-link>
             </li>
             <li class="relative px-6 py-3">
               <inertia-link
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="route('products.index')"
+                :href="route('clientes.index')"
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-purple-600 dark:hover:text-gray-200"
+                :class="{
+                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100': route().current(
+                    'clientes.*'
+                  ),
+                }"
               >
                 <span
-                  v-if="route().current('products.index')"
+                  v-if="route().current('clientes.*')"
                   class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
                 ></span>
                 <svg
-                  class="w-5 h-5"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
                 >
                   <path
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  ></path>
+                    d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"
+                  />
                 </svg>
+
                 <span class="ml-4">Clientes</span>
               </inertia-link>
             </li>
             <li class="relative px-6 py-3">
               <inertia-link
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="route('products.index')"
+                :href="route('salidas.index')"
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-purple-600 dark:hover:text-gray-200"
+                :class="{
+                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100': route().current(
+                    'salidas.*'
+                  ),
+                }"
               >
                 <span
-                  v-if="route().current('products.index')"
+                  v-if="route().current('salidas.*')"
                   class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
                 ></span>
                 <svg
-                  class="w-5 h-5"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
                 >
                   <path
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  ></path>
-                </svg>
-                <span class="ml-4">Usuarios</span>
-              </inertia-link>
-            </li>
-            <li class="relative px-6 py-3">
-              <inertia-link
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="route('products.index')"
-              >
-                <span
-                  v-if="route().current('products.index')"
-                  class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                  aria-hidden="true"
-                ></span>
-                <svg
-                  class="w-5 h-5"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
+                    d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                  />
                   <path
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  ></path>
+                    d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z"
+                  />
                 </svg>
                 <span class="ml-4">Salidas</span>
+              </inertia-link>
+            </li>
+              <li
+              class="relative px-6 py-3"
+              v-if="$page.props.permission.users.viewAny"
+            >
+              <inertia-link
+                :href="route('usuarios.index')"
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-purple-600 dark:hover:text-gray-200"
+                :class="{
+                  'text-purple-600 transition-colors duration-150 dark:hover:text-gray-200 dark:text-gray-100': route().current(
+                    'usuarios.*'
+                  ),
+                }"
+              >
+                <span
+                  v-if="route().current('usuarios.*')"
+                  class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                  aria-hidden="true"
+                ></span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+
+                <span class="ml-4">Usuarios</span>
               </inertia-link>
             </li>
           </ul>
@@ -549,7 +535,7 @@
           >
             <!-- Mobile hamburger -->
             <button
-              class="p-1 mr-5 -ml-1 rounded-md md:hidden lg:hidden focus:outline-none focus:shadow-outline-purple"
+              class="p-1 mr-5 -ml-1 md:hidden rounded-md focus:outline-none focus:shadow-outline-purple"
               @click="showingNavigationDropdown = !showingNavigationDropdown"
               aria-label="Menu"
             >
@@ -581,6 +567,7 @@
                 />
               </svg>
             </button>
+
             <!-- Search input -->
             <div class="flex justify-center flex-1 lg:mr-32"></div>
             <ul class="flex items-center flex-shrink-0 space-x-6">
@@ -632,7 +619,7 @@
                         <div class="flex justify-center -mt-8">
                           <img
                             :src="$page.props.user.profile_photo_url"
-                            class="rounded-full border-solid border-white border-2 mt-8"
+                            class="rounded-full border-solid border-white border-2 mt-8 w-32 h-32"
                           />
                         </div>
                         <div class="text-center px-3 pb-6 pt-2">
@@ -642,25 +629,23 @@
                             {{ $page.props.user.name }}
                           </h3>
                         </div>
-                        <div class="flex justify-center pb-3">
+                        <div class="flex justify-center pb-1">
                           <div class="text-center mr-3 border-r pr-3">
                             <inertia-link
                               :href="route('profile.show')"
-                              class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-purple-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                              class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-purple-600 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                             >
                               <svg
-                                class="w-6 h-6"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
                               >
                                 <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  stroke-width="2"
-                                  d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                                ></path>
+                                  fill-rule="evenodd"
+                                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+                                  clip-rule="evenodd"
+                                />
                               </svg>
                               <span class="px-1">Perfil</span>
                             </inertia-link>
@@ -669,21 +654,19 @@
                           <div class="flex justify-center text-center">
                             <inertia-link
                               @click.prevent="logout"
-                              class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-purple-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                              class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-purple-600 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                             >
                               <svg
-                                class="w-6 h-6"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
                               >
                                 <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  stroke-width="2"
-                                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-                                ></path>
+                                  fill-rule="evenodd"
+                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                                  clip-rule="evenodd"
+                                />
                               </svg>
                               <span class="px-1">Salir</span>
                             </inertia-link>
@@ -727,7 +710,7 @@
 
         <main class="h-full overflow-y-auto">
           <div class="container grid px-6 mx-auto" scroll-region>
-            <flash-messages :hide="false"></flash-messages>
+            <flash-messages ></flash-messages>
             <slot> </slot>
           </div>
         </main>

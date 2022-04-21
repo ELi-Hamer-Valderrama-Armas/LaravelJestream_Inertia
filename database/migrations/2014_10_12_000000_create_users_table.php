@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('Ciudad')->nullable();
             $table->string('Calle')->nullable();
             $table->integer('Numero')->nullable();  
-            $table->string('role')->default('usuario');             
+            $table->string('Role');             
             $table->timestamp('email_verified_at')->nullable();                        
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();

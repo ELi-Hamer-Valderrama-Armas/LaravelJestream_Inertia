@@ -19,15 +19,70 @@
           autocomplete="name"
         />
       </div>
+      <div>
+        <jet-label for="NumeroDocumento" value="Dni" />
+        <jet-input
+          id="NumeroDocumento"
+          type="number"
+          class="mt-1 block w-full"
+          v-model="form.NumeroDocumento"
+          required
+        />
+      </div>
+      <div>
+        <jet-label for="Telefono" value="Telefono" />
+        <jet-input
+          id="Telefono"
+          type="number"
+          class="mt-1 block w-full"
+          v-model="form.Telefono"
+        />
+      </div>
+      <div>
+        <jet-label for="Ciudad" value="Ciudad" />
+        <jet-input
+          id="Ciudad"
+          type="text"
+          class="mt-1 block w-full"
+          v-model="form.Ciudad"
+        />
+      </div>
+      <div>
+        <jet-label for="Calle" value="Calle" />
+        <jet-input
+          id="Calle"
+          type="text"
+          class="mt-1 block w-full"
+          v-model="form.Calle"
+        />
+      </div>
+       <div>
+        <jet-label for="Numero" value="Numero" />
+        <jet-input
+          id="Numero"
+          type="text"
+          class="mt-1 block w-full"
+          v-model="form.Numero"
+        />
+      </div>
+       <div>
+              <jet-label for="role" value="Tipo de Rol" />
+
+              <select
+                class="bg-gray-100 appearance-none focus:ring-purple-500 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:border-purple-500 rounded-lg dark:border-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:focus:border-purple-500 dark:focus:shadow-outline-gray dark:border-gray-800"
+                v-model="form.Role"
+              >
+                <option value="Administrador">
+                  Administrador
+                </option>
+                <option value="Usuario">Usuario</option>
+              </select>
+             
+            </div>
 
       <div class="mt-4">
         <jet-label for="email" value="Email" />
-        <jet-input
-          id="email"
-          type="email"
-          v-model="form.email"
-          required
-        />
+        <jet-input id="email" type="email" v-model="form.email" required />
       </div>
       <div class="mt-4">
         <jet-label for="password" value="Password" />
@@ -66,19 +121,19 @@
             />
 
             <div class="ml-2">
-              I agree to the
+              Estoy de acuerdo con la
               <a
                 target="_blank"
                 :href="route('terms.show')"
                 class="underline text-sm text-gray-600 hover:text-gray-900"
                 >Terms of Service</a
               >
-              and
+              y
               <a
                 target="_blank"
                 :href="route('policy.show')"
                 class="underline text-sm text-gray-600 hover:text-gray-900"
-                >Privacy Policy</a
+                >Política de privacidad</a
               >
             </div>
           </div>
@@ -88,9 +143,9 @@
       <div class="flex items-center justify-end mt-4">
         <inertia-link
           :href="route('login')"
-          class="underline text-sm text-gray-600 hover:text-gray-900"
+          class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-300"
         >
-          Already registered?
+          ¿Ya registrado?
         </inertia-link>
 
         <jet-button
@@ -98,7 +153,7 @@
           :class="{ 'opacity-25': form.processing }"
           :disabled="form.processing"
         >
-          Register
+          Registrar
         </jet-button>
       </div>
     </form>
@@ -132,7 +187,13 @@ export default {
         email: "",
         password: "",
         password_confirmation: "",
-       
+        NumeroDocumento:"",
+                Telefono:"",
+                Ciudad:"",
+                Calle:"",
+              Numero:"",
+                Role:"",
+
         terms: false,
       }),
     };

@@ -30,7 +30,13 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',        
+        'password',  
+        'NumeroDocumento',
+        'Telefono',
+        'Ciudad',
+        'Calle',
+        'Numero',
+        'Role'      
     
     ];
 
@@ -69,7 +75,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Ingreso');
     }
 
-    public function checkRole($role){
-        return $this->role === $role;
+    public function checkRole($Role){
+        return $this->Role === $Role;
     }
 }

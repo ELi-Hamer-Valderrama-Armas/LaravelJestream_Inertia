@@ -14,7 +14,7 @@ class CreateSalidaProductoTable extends Migration
     public function up()
     {
         Schema::create('salida_producto', function (Blueprint $table) {
-
+$table->id();
             $table->foreignId('salida_id')
 
                 ->constrained('salidas')
@@ -27,9 +27,10 @@ class CreateSalidaProductoTable extends Migration
                 ->onDelete('cascade');
 
            
-                $table->Date('Fecha')->nullable();
+                
                 $table->Decimal('precio', 8, 2)->nullable();
                 $table->Integer('cantidad');
+                $table->Decimal('monto', 8, 2)->nullable();
 
         });
     }

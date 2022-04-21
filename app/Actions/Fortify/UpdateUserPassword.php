@@ -5,6 +5,7 @@ namespace App\Actions\Fortify;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\UpdatesUserPasswords;
+use Illuminate\Support\Facades\Redirect;
 
 class UpdateUserPassword implements UpdatesUserPasswords
 {
@@ -24,12 +25,13 @@ class UpdateUserPassword implements UpdatesUserPasswords
             'password' => $this->passwordRules(),
         ])->after(function ($validator) use ($user, $input) {
             if (! isset($input['current_password']) || ! Hash::check($input['current_password'], $user->password)) {
-                $validator->errors()->add('current_password', __('The provided password does not match your current password.'));
+                $validator->errors()->add('current_password', __('La contraseña proporcionada no coincide con su contraseña actual.'));
             }
         })->validateWithBag('updatePassword');
 
         $user->forceFill([
             'password' => Hash::make($input['password']),
         ])->save();
+         return Redirect::route('profile.show')->with('success','Usuario editado.');
     }
 }

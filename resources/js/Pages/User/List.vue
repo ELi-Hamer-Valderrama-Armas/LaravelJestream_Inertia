@@ -6,9 +6,9 @@
           class="px-2 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
         >
           <h2
-            class="py-2 px-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+            class="py-2 px-6 text-lg font-semibold text-gray-700 dark:text-gray-200"
           >
-            usuarios
+            Usuarios
           </h2>
 
           <div
@@ -47,7 +47,7 @@
 
                 <jet-input
                   id="searchale"
-                  placeholder="Buscar Nombre"
+                  placeholder="Buscar nombre"
                   type="search"
                   v-model="params.buscar"
                   autocomplete="off"
@@ -70,12 +70,15 @@
                   >
                     <thead>
                       <tr
-                        class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-bdark:border-gray-700 bg-gray-100 dark:text-gray-400 dark:bg-gray-700"
+                        class="text-xs font-semibold tracking-wide text-left text-white uppercase border-bdark:border-gray-700 bg-gray-600 dark:text-gray-400 dark:bg-gray-700"
                       >
-                        <th class="px-4 py-3">ID</th>
+                        
                         <th class="px-4 py-3">
                           NOMBRE
                         </th>
+                        <th class="px-4 py-3">DNI</th>
+                        <th class="px-4 py-3">TELEFONO</th>
+                        <th class="px-4 py-3">DIRECCIÓN</th>
                         <th class="px-4 py-3">ROL</th>
                         <th class="px-4 py-3">
                           ACCION
@@ -89,11 +92,9 @@
                         v-for="(usuario, index) in usuarios.data"
                         :key="index"
                         class="text-gray-700 dark:text-gray-400"
+                        :class="{'bg-gray-50 dark:bg-gray-800': index%2===0}"
                       >
-                        <td class="px-4 py-3 text-sm">
-                          {{ index + 1 }}
-                        </td>
-
+                      
                         <td class="px-6 py-4 whitespace-nowrap">
                           <div class="flex items-center">
                             <div class="flex-shrink-0 h-10 w-10">
@@ -115,9 +116,18 @@
                             </div>
                           </div>
                         </td>
+                         <td class="px-4 py-3 text-sm">
+                          {{ usuario.NumeroDocumento }}
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                          {{ usuario.Telefono }}
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                          {{ usuario.Ciudad }} - {{ usuario.Calle }} - {{ usuario.Numero }}
+                        </td>
 
                         <td class="px-4 py-3 text-sm">
-                          {{ usuario.role }}
+                          {{ usuario.Role }}
                         </td>
                         <td
                           class="px-6 py-1 whitespace-nowrap text-sm text-gray-500"
@@ -142,7 +152,7 @@
                             </inertia-link>
                             <button
                               v-if="usuario.can.delete"
-                              @click="deleteRow(usuarios)"
+                              @click="deleteRow(usuario.id)"
                               class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                             >
                               <svg
@@ -167,7 +177,7 @@
                           <p
                             class="text-sm text-center text-gray-700 dark:text-gray-300"
                           >
-                            No existen áreas.
+                            No existen usuarios
                           </p>
                         </td>
                       </tr>
@@ -178,12 +188,11 @@
 
                   <jet-confirmation-modal :show="isOpen" @click="closeModal">
                     <template #title>
-                      Eliminar área
+                      Eliminar Usuario
                     </template>
 
                     <template #content>
-                      Si eliminas esta área también se eliminaran los Ingresos
-                      que le pertenecen. ¿Esta seguro de Eliminar esta área?.
+                      Si eliminas este usuario también se eliminaran los Ingresos y Salidas que ha realizado. ¿Esta seguro de Eliminar este usuario?.
                     </template>
 
                     <template #footer>
@@ -266,8 +275,8 @@ export default {
       console.log(this.isOpen);
     },
     deleteRow(datas) {
-      this.datos = datas.id;
-      this.openModal();
+    this.datos = datas;
+     this.openModal();
     },
   },
 };

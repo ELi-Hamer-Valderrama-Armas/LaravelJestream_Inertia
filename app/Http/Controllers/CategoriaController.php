@@ -17,7 +17,7 @@ class CategoriaController extends Controller
     public function index()
     {
        // $categorias = Categoria::paginate(2);
-       $query = Categoria::query();
+       $query = Categoria::query()->orderBy('Nombre');
 
        if (request('buscar')) {         
          $query->where('Nombre','LIKE','%'.request('buscar').'%');
@@ -57,7 +57,7 @@ class CategoriaController extends Controller
 
         Categoria::create($request->all());
   
-        return Redirect::route('categorias.index')->with('success', 'Categoria creada.');
+        return Redirect::route('categorias.index')->with('success', 'Categoría creada.');
         
     }
 
@@ -100,7 +100,7 @@ class CategoriaController extends Controller
             );
         $categoria->update($request->all());
         
-        return Redirect::route('categorias.index')->with('success', 'Categoria editada.');
+        return Redirect::route('categorias.index')->with('success', 'Categoría editada.');
     }
 
     /**
@@ -111,7 +111,8 @@ class CategoriaController extends Controller
      */
     public function destroy(Categoria $categoria)
     {
+
         $categoria->delete();
-        return Redirect::route('categorias.index')->with('success', 'Categoria eliminada.');
+        return Redirect::route('categorias.index')->with('success', 'Categoría eliminada.');
     }
 }

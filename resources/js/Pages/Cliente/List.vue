@@ -6,7 +6,7 @@
           class="px-2 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
         >
           <h2
-            class="py-2 px-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+            class="py-2 px-6 text-lg font-semibold text-gray-700 dark:text-gray-200"
           >
             Clientes
           </h2>
@@ -47,7 +47,7 @@
 
                 <jet-input
                   id="searchale"
-                  placeholder="Buscar Nombre"
+                  placeholder="Buscar nombre"
                   type="search"
                   v-model="params.buscar"
                   autocomplete="off"
@@ -70,9 +70,8 @@
                   >
                     <thead>
                       <tr
-                        class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-bdark:border-gray-700 bg-gray-100 dark:text-gray-400 dark:bg-gray-700"
+                        class="text-xs font-semibold tracking-wide text-left text-white uppercase border-bdark:border-gray-700 bg-gray-600 dark:text-gray-400 dark:bg-gray-700"
                       >
-                        <th class="px-4 py-3">ID</th>
                         <th class="px-4 py-3">NOMBRES</th>
                         <th class="px-4 py-3">RAZÓN SOCIAL</th>
                         <th class="px-4 py-3">DOCUMENTO</th>
@@ -85,15 +84,18 @@
                     </thead>
                     <tbody
                       class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
+                      :class="{
+                        'bg-gray-50 dark:bg-gray-800': index % 2 === 0,
+                      }"
                     >
                       <tr
                         v-for="(cliente, index) in clientes.data"
                         :key="index"
                         class="text-gray-700 dark:text-gray-400"
+                        :class="{
+                          'bg-gray-50 dark:bg-gray-800': index % 2 === 0,
+                        }"
                       >
-                        <td class="px-4 py-3 text-sm">
-                          {{ index + 1 }}
-                        </td>
                         <td class="px-4 py-3 text-sm">
                           {{ cliente.Nombres }}
                         </td>
@@ -164,7 +166,7 @@
                           <p
                             class="text-sm text-center text-gray-700 dark:text-gray-300"
                           >
-                            No existen clientes.
+                            No existen clientes
                           </p>
                         </td>
                       </tr>
@@ -174,11 +176,10 @@
                   <jet-pagination :links="clientes.links" />
 
                   <jet-confirmation-modal :show="isOpen" @click="closeModal">
-                    <template #title> Eliminar área </template>
+                    <template #title> Eliminar cliente </template>
 
                     <template #content>
-                      Si eliminas este cliente también se eliminaran las compras
-                      que le pertenecen. ¿Esta seguro de Eliminar esta cliente?.
+                      Si eliminas este cliente también se eliminaran las salidas donde esta involucrado. ¿Esta seguro de Eliminar este cliente?.
                     </template>
 
                     <template #footer>

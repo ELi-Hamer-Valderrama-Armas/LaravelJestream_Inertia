@@ -1,6 +1,5 @@
 <template>
 <div>
-  <app-layout>
   <div class="absolute bottom-10 right-10">
     <div
       v-if="$page.props.flash.success && show"
@@ -91,7 +90,6 @@
       </button>
     </div>
     </div>
-    </app-layout>
   </div>
 </template>
 
@@ -108,7 +106,7 @@ export default {
     "$page.props.flash": {
       handler() {
         this.show = true;
-        setTimeout(() => (this.show = false), 1500);
+        setTimeout(() => (this.show = false), 2000);
          
       },
       deep: true,

@@ -6,9 +6,9 @@
           class="px-2 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
         >
           <h2
-            class="py-2 px-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+            class="py-2 px-6 text-lg font-semibold text-gray-700 dark:text-gray-200"
           >
-            Áreas
+            Salidas
           </h2>
 
           <div
@@ -17,7 +17,7 @@
             <span class="flex px-2 items-center col-span-4">
               <nav aria-label="Table navigation">
                 <inertia-link
-                  :href="route('areas.create')"
+                  :href="route('salidas.create')"
                   class="px-4 py-2 leading-5 inline-flex items-center px-4 py-2 bg-purple-600 border border-transparent rounded-lg font-semibold text-xs text-white uppercase tracking-widest hover:bg-purple-700 active:bg-purple-900 focus:outline-none focus:border-purple-900 focus:ring focus:ring-purple-300 disabled:opacity-25 transition"
                 >
                   Nuevo
@@ -47,7 +47,7 @@
 
                 <jet-input
                   id="searchale"
-                  placeholder="Buscar Nombre"
+                  placeholder="Buscar serie"
                   type="search"
                   v-model="params.buscar"
                   autocomplete="off"
@@ -70,11 +70,16 @@
                   >
                     <thead>
                       <tr
-                        class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-bdark:border-gray-700 bg-gray-100 dark:text-gray-400 dark:bg-gray-700"
+                        class="text-xs font-semibold tracking-wide text-left text-white uppercase border-bdark:border-gray-700 bg-gray-600 dark:text-gray-400 dark:bg-gray-700"
                       >
-                        <th class="px-4 py-3">ID</th>
-                        <th class="px-4 py-3">NOMBRE</th>
-                        <th class="px-4 py-3">RESPONSABLE</th>
+                        <th class="px-4 py-3">FECHA</th>
+                        <th class="px-4 py-3">COMPROBANTE</th>
+                        <th class="px-4 py-3">SERIE</th>
+                        <th class="px-4 py-3">NUMERO</th>
+                        <th class="px-4 py-3">CLIENTE</th>
+                        <th class="px-4 py-3">VENDEDOR</th>
+                        <th class="px-4 py-3">IMPUESTO</th>
+                        <th class="px-4 py-3">TOTAL</th>
                         <th class="px-4 py-3">ACCION</th>
                       </tr>
                     </thead>
@@ -82,41 +87,71 @@
                       class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
                     >
                       <tr
-                        v-for="(area,index) in areas.data"
+                        v-for="(salida, index) in salidas.data"
                         :key="index"
                         class="text-gray-700 dark:text-gray-400"
+                        :class="{
+                          'bg-gray-50 dark:bg-gray-800': index % 2 === 0,
+                        }"
                       >
                         <td class="px-4 py-3 text-sm">
-                          {{ index +1 }}
+                          {{ salida.Fecha }}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                          {{ area.Nombre }}
+                          {{ salida.TipoComprobante }}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                          {{ area.Responsable }}
+                          {{ salida.SerieComprobante }}
                         </td>
+                        <td class="px-4 py-3 text-sm">
+                          {{ salida.NumeroComprobante }}
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                          {{ salida.personas.Nombres }}
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                          {{ salida.users.name }}
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                         S/. {{ salida.Impuesto }}
+                        </td>
+
+                        <td class="px-4 py-3 text-sm">
+                         S/. {{ salida.Total }}
+                        </td>
+
                         <td
                           class="px-6 py-1 whitespace-nowrap text-sm text-gray-500"
                         >
                           <div class="flex items-center space-x-4 text-sm">
                             <inertia-link
-                              :href="route('areas.edit', area.id)"
+                              :href="route('salidas.show', salida.id)"
                               as="button"
                               class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                             >
                               <svg
                                 class="w-5 h-5"
-                                aria-hidden="true"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                ></path>
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                                 ></path>
                               </svg>
                             </inertia-link>
                             <button
-                              @click="deleteRow(area)"
+                              @click="deleteRow(salida)"
                               class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                             >
                               <svg
@@ -132,33 +167,29 @@
                                 ></path>
                               </svg>
                             </button>
-
                           </div>
-                          
                         </td>
                       </tr>
 
-                      <tr v-if="areas.data.length === 0">
-                        <td class="px-4 py-3 text-sm" colspan="4">
+                      <tr v-if="salidas.data.length === 0">
+                        <td class="px-4 py-3 text-sm" colspan="9">
                           <p
                             class="text-sm text-center text-gray-700 dark:text-gray-300"
                           >
-                            No existen áreas.
+                            No existen salidas
                           </p>
                         </td>
                       </tr>
                     </tbody>
                   </table>
 
-                  <jet-pagination :links="areas.links" />
+                  <jet-pagination :links="salidas.links" />
 
                   <jet-confirmation-modal :show="isOpen" @click="closeModal">
-                    <template #title> Eliminar área </template>
+                    <template #title> Eliminar Salida </template>
 
                     <template #content>
-                      Si eliminas esta área también se eliminaran los
-                      Ingresos que le pertenecen. ¿Esta seguro de Eliminar esta
-                      área?.
+                      ¿Esta seguro de Eliminar esta salida?.
                     </template>
 
                     <template #footer>
@@ -171,7 +202,7 @@
                       <inertia-link
                         class="w-full px-5 text-center py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
                         method="delete"
-                        :href="route('areas.destroy', datos)"
+                        :href="route('salidas.destroy', datos)"
                         @click="closeModal"
                       >
                         Eliminar
@@ -198,8 +229,7 @@ import throttle from "lodash/throttle";
 
 export default {
   props: {
-    areas: Array,
-    
+    salidas: Array,
   },
   components: {
     AppLayout,
@@ -214,7 +244,7 @@ export default {
     return {
       isOpen: false,
       datos: null,
-      
+
       params: {
         buscar: null,
       },
@@ -225,7 +255,7 @@ export default {
     params: {
       deep: true,
       handler: throttle(function () {
-        this.$inertia.get(route("areas.index"), this.params, {
+        this.$inertia.get(route("salidas.index"), this.params, {
           preserveState: true,
         });
       }, 150),
