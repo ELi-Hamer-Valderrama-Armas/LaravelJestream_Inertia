@@ -1,6 +1,6 @@
 # Sistema de Almacén
 
-Aplicación para almacén, la cual fue desarrollada en laravel jetstream - inertia  y vuejs. 
+Sistema para almacén, la cual fue desarrollada en laravel jetstream - inertia  y vuejs. 
 
 ## Tabla de contenido
 
