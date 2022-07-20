@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
          DB::table('users')->insert([
           'name' => 'Administrador',
           'email' => 'admin@gmail.com',
-          'password'=> Hash::make('11111111'),
+          'password'=> Hash::make('mochica'),
+          'profile_photo_path'=> 'default-photo.png',
           'Role' => 'Administrador',
         ]);
         //\App\Models\User::factory(1)->create();
