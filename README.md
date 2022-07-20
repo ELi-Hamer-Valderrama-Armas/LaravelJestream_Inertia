@@ -1,6 +1,6 @@
 # Sistema de Almacén
 
-Aplicación para almacén, la cual fue desarrollada en laravel 8 jetstream - inertia  y vuejs. 
+Aplicación para almacén, la cual fue desarrollada en laravel jetstream - inertia  y vuejs. 
 
 ## Tabla de contenido
 
@@ -13,7 +13,7 @@ Aplicación para almacén, la cual fue desarrollada en laravel 8 jetstream - ine
 
 ![](./screenshot.png)
 
-### MOdulos
+### Modulos
 
 - ✔️ **Inicio**: con las opciones de `Reportes graficos`
 - ✔️ **Proveedores**: con las opciones de `listar`,`buscar`,`crear`, `editar` y `eliminar`
